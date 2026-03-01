@@ -1,0 +1,21 @@
+date,product,category,region,quantity,unit_price,total,customer_id,payment_method
+2026-01-05,Wireless Headphones,Electronics,North America,3,79.99,239.97,C1001,Credit Card
+2026-01-05,Office Chair,Furniture,Europe,1,349.00,349.00,C1002,PayPal
+2026-01-06,Running Shoes,Sports,Asia Pacific,2,129.95,259.90,C1003,Credit Card
+2026-01-07,Desk Lamp,Office,North America,5,44.99,224.95,C1004,Debit Card
+2026-01-08,Winter Jacket,Clothing,Europe,1,189.00,189.00,C1005,Credit Card
+2026-01-08,Bluetooth Speaker,Electronics,Latin America,2,59.99,119.98,C1006,PayPal
+2026-01-09,Bookshelf,Furniture,North America,1,199.99,199.99,C1007,Credit Card
+2026-01-10,Yoga Mat,Sports,Asia Pacific,4,29.99,119.96,C1008,Debit Card
+2026-01-11,Novel Collection,Books,Europe,6,14.99,89.94,C1009,Credit Card
+2026-01-12,Standing Desk,Office,North America,1,549.00,549.00,C1010,Credit Card
+2026-01-13,Laptop Sleeve,Electronics,Middle East,3,34.99,104.97,C1011,PayPal
+2026-01-14,Bean Bag,Furniture,Africa,2,89.99,179.98,C1012,Debit Card
+2026-01-15,Tennis Racket,Sports,North America,1,159.99,159.99,C1013,Credit Card
+2026-01-16,Polo Shirt,Clothing,Europe,4,49.99,199.96,C1014,Credit Card
+2026-01-17,Mechanical Keyboard,Electronics,Asia Pacific,2,129.99,259.98,C1015,PayPal
+2026-01-18,Cookbook Set,Books,North America,3,24.99,74.97,C1016,Debit Card
+2026-01-19,Monitor Stand,Office,Latin America,2,79.99,159.98,C1017,Credit Card
+2026-01-20,Hiking Boots,Sports,Europe,1,219.00,219.00,C1018,Credit Card
+2026-01-21,USB-C Hub,Electronics,North America,5,39.99,199.95,C1019,PayPal
+2026-01-22,Throw Pillow Set,Furniture,Asia Pacific,3,34.99,104.97,C1020,Credit Card
