@@ -1,8 +1,10 @@
-import { Bell, Search, User } from "lucide-react";
+import { Bell, Search, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useAuth } from "@/hooks/useAuth";
 
 export function Header() {
+  const { user, signOut } = useAuth();
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-background/80 px-6 backdrop-blur-lg">
       <div className="flex items-center gap-4">
@@ -26,10 +28,13 @@ export function Header() {
             <User className="h-4 w-4 text-primary" />
           </div>
           <div className="hidden sm:block">
-            <p className="text-sm font-medium text-foreground">John Doe</p>
+            <p className="text-sm font-medium text-foreground">{user?.user_metadata?.display_name || user?.email}</p>
             <p className="text-xs text-muted-foreground">Data Analyst</p>
           </div>
         </div>
+        <Button variant="ghost" size="icon" onClick={signOut} className="text-muted-foreground hover:text-foreground">
+          <LogOut className="h-4 w-4" />
+        </Button>
       </div>
     </header>
   );
