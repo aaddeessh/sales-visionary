@@ -9,6 +9,7 @@ import { RegionalHeatmap } from "@/components/dashboard/RegionalHeatmap";
 import { RecentTransactions } from "@/components/dashboard/RecentTransactions";
 import { ForecastingPanel } from "@/components/dashboard/ForecastingPanel";
 import { DataUpload } from "@/components/dashboard/DataUpload";
+import { DatasetSwitcher } from "@/components/dashboard/DatasetSwitcher";
 import { CsvDataProvider, useCsvData, deriveKPIs } from "@/hooks/useCsvData";
 import {
   DollarSign,
@@ -146,9 +147,12 @@ const Index = () => {
         <div className="pl-16 lg:pl-64">
           <Header />
           <main className="p-6">
-            <div className="mb-6">
-              <h1 className="text-2xl font-bold text-foreground">{pageInfo.title}</h1>
-              <p className="text-sm text-muted-foreground">{pageInfo.subtitle}</p>
+            <div className="mb-6 flex items-center justify-between">
+              <div>
+                <h1 className="text-2xl font-bold text-foreground">{pageInfo.title}</h1>
+                <p className="text-sm text-muted-foreground">{pageInfo.subtitle}</p>
+              </div>
+              <DatasetSwitcher />
             </div>
             <DashboardContent activeTab={activeTab} />
           </main>

@@ -4,21 +4,41 @@ export interface CsvRow {
   [key: string]: string;
 }
 
+interface Dataset {
+  id: string;
+  fileName: string;
+  headers: string[];
+  rawRows: string[][];
+}
+
 interface CsvDataContextType {
   headers: string[];
   rows: CsvRow[];
   rawRows: string[][];
   fileName: string | null;
-  setData: (fileName: string, headers: string[], rawRows: string[][]) => void;
+  datasets: Dataset[];
+  activeDatasetId: string | null;
+  addDataset: (fileName: string, headers: string[], rawRows: string[][]) => string;
+  removeDataset: (id: string) => void;
+  switchDataset: (id: string) => void;
   clearData: () => void;
+  /** @deprecated use addDataset */
+  setData: (fileName: string, headers: string[], rawRows: string[][]) => void;
 }
 
 const CsvDataContext = createContext<CsvDataContextType | undefined>(undefined);
 
+let nextId = 1;
+
 export function CsvDataProvider({ children }: { children: ReactNode }) {
-  const [headers, setHeaders] = useState<string[]>([]);
-  const [rawRows, setRawRows] = useState<string[][]>([]);
-  const [fileName, setFileName] = useState<string | null>(null);
+  const [datasets, setDatasets] = useState<Dataset[]>([]);
+  const [activeDatasetId, setActiveDatasetId] = useState<string | null>(null);
+
+  const active = useMemo(() => datasets.find((d) => d.id === activeDatasetId) || null, [datasets, activeDatasetId]);
+
+  const headers = active?.headers ?? [];
+  const rawRows = active?.rawRows ?? [];
+  const fileName = active?.fileName ?? null;
 
   const rows = useMemo(() => {
     return rawRows.map((row) => {
@@ -30,20 +50,45 @@ export function CsvDataProvider({ children }: { children: ReactNode }) {
     });
   }, [headers, rawRows]);
 
-  const setData = useCallback((name: string, h: string[], r: string[][]) => {
-    setFileName(name);
-    setHeaders(h);
-    setRawRows(r);
+  const addDataset = useCallback((name: string, h: string[], r: string[][]) => {
+    const id = `ds-${nextId++}`;
+    const ds: Dataset = { id, fileName: name, headers: h, rawRows: r };
+    setDatasets((prev) => [...prev, ds]);
+    setActiveDatasetId(id);
+    return id;
+  }, []);
+
+  const removeDataset = useCallback((id: string) => {
+    setDatasets((prev) => {
+      const next = prev.filter((d) => d.id !== id);
+      return next;
+    });
+    setActiveDatasetId((cur) => {
+      if (cur === id) {
+        // switch to last remaining or null
+        const remaining = datasets.filter((d) => d.id !== id);
+        return remaining.length > 0 ? remaining[remaining.length - 1].id : null;
+      }
+      return cur;
+    });
+  }, [datasets]);
+
+  const switchDataset = useCallback((id: string) => {
+    setActiveDatasetId(id);
   }, []);
 
   const clearData = useCallback(() => {
-    setFileName(null);
-    setHeaders([]);
-    setRawRows([]);
+    setDatasets([]);
+    setActiveDatasetId(null);
   }, []);
 
+  // backward compat
+  const setData = useCallback((name: string, h: string[], r: string[][]) => {
+    addDataset(name, h, r);
+  }, [addDataset]);
+
   return (
-    <CsvDataContext.Provider value={{ headers, rows, rawRows, fileName, setData, clearData }}>
+    <CsvDataContext.Provider value={{ headers, rows, rawRows, fileName, datasets, activeDatasetId, addDataset, removeDataset, switchDataset, clearData, setData }}>
       {children}
     </CsvDataContext.Provider>
   );
@@ -82,7 +127,7 @@ export function deriveSalesOverTime(rows: CsvRow[]) {
 
   const grouped: Record<string, number> = {};
   rows.forEach((r) => {
-    const d = r[dateField]?.substring(0, 7) || "Unknown"; // group by YYYY-MM
+    const d = r[dateField]?.substring(0, 7) || "Unknown";
     grouped[d] = (grouped[d] || 0) + (parseFloat(r[totalField]) || 0);
   });
 
