@@ -3,6 +3,7 @@ import { Upload, FileSpreadsheet, CheckCircle, AlertCircle, X, Download, Eye } f
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { useCsvData } from "@/hooks/useCsvData";
 import {
   Dialog,
   DialogContent,
@@ -72,6 +73,7 @@ export function DataUpload() {
   const [previewFile, setPreviewFile] = useState<UploadedFile | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [pipelineStep, setPipelineStep] = useState(0);
+  const { setData } = useCsvData();
 
   const processFile = useCallback(async (file: File) => {
     const error = validateFile(file);
@@ -138,6 +140,9 @@ export function DataUpload() {
         const warnings: string[] = [];
         if (emptyRows > 0) warnings.push(`${emptyRows} empty rows removed`);
         if (mismatchedRows > 0) warnings.push(`${mismatchedRows} rows with column mismatch`);
+
+        // Push data to dashboard context
+        setData(file.name, headers, rows);
 
         toast.success(
           `${file.name} processed: ${rows.length} rows × ${headers.length} columns` +
