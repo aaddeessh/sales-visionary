@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { useCsvData } from "@/hooks/useCsvData";
+import { useAuth } from "@/hooks/useAuth";
+import { useFirestoreDatasets } from "@/hooks/useFirestoreDatasets";
 import {
   Dialog,
   DialogContent,
@@ -74,6 +76,8 @@ export function DataUpload() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [pipelineStep, setPipelineStep] = useState(0);
   const { setData } = useCsvData();
+  const { user } = useAuth();
+  const { saveDataset } = useFirestoreDatasets();
 
   const processFile = useCallback(async (file: File) => {
     const error = validateFile(file);
@@ -143,6 +147,13 @@ export function DataUpload() {
 
         // Push data to dashboard context
         setData(file.name, headers, rows);
+
+        // Save to Firestore for persistence
+        if (user) {
+          saveDataset(user.uid, file.name, headers, rows).catch((err) =>
+            console.error("Failed to save dataset to Firestore", err)
+          );
+        }
 
         toast.success(
           `${file.name} processed: ${rows.length} rows × ${headers.length} columns` +
