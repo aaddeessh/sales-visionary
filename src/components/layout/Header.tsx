@@ -28,7 +28,7 @@ export function Header() {
             <User className="h-4 w-4 text-primary" />
           </div>
           <div className="hidden sm:block">
-            <p className="text-sm font-medium text-foreground">{user?.user_metadata?.display_name || user?.email}</p>
+            <p className="text-sm font-medium text-foreground">{user?.displayName || user?.email}</p>
             <p className="text-xs text-muted-foreground">Data Analyst</p>
           </div>
         </div>
