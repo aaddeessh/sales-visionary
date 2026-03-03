@@ -1,4 +1,7 @@
-import { createContext, useContext, useState, ReactNode, useCallback, useMemo } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode, useCallback, useMemo } from "react";
+import { useAuth } from "@/hooks/useAuth";
+import { useFirestoreDatasets } from "@/hooks/useFirestoreDatasets";
+import { toast } from "sonner";
 
 export interface CsvRow {
   [key: string]: string;
@@ -6,6 +9,7 @@ export interface CsvRow {
 
 interface Dataset {
   id: string;
+  firestoreId?: string; // Firestore document ID for persistence
   fileName: string;
   headers: string[];
   rawRows: string[][];
@@ -18,7 +22,8 @@ interface CsvDataContextType {
   fileName: string | null;
   datasets: Dataset[];
   activeDatasetId: string | null;
-  addDataset: (fileName: string, headers: string[], rawRows: string[][]) => string;
+  loadingHistory: boolean;
+  addDataset: (fileName: string, headers: string[], rawRows: string[][], firestoreId?: string) => string;
   removeDataset: (id: string) => void;
   switchDataset: (id: string) => void;
   clearData: () => void;
@@ -33,6 +38,43 @@ let nextId = 1;
 export function CsvDataProvider({ children }: { children: ReactNode }) {
   const [datasets, setDatasets] = useState<Dataset[]>([]);
   const [activeDatasetId, setActiveDatasetId] = useState<string | null>(null);
+  const [loadingHistory, setLoadingHistory] = useState(false);
+  const { user } = useAuth();
+  const { loadDatasets } = useFirestoreDatasets();
+
+  // Load previous datasets from Firestore on login
+  useEffect(() => {
+    if (!user) {
+      setDatasets([]);
+      setActiveDatasetId(null);
+      return;
+    }
+    let cancelled = false;
+    (async () => {
+      setLoadingHistory(true);
+      try {
+        const saved = await loadDatasets(user.uid);
+        if (cancelled) return;
+        if (saved.length > 0) {
+          const loaded: Dataset[] = saved.map((s) => ({
+            id: `ds-${nextId++}`,
+            firestoreId: s.id,
+            fileName: s.fileName,
+            headers: s.headers,
+            rawRows: s.rawRows,
+          }));
+          setDatasets(loaded);
+          setActiveDatasetId(loaded[0].id);
+          toast.success(`Loaded ${loaded.length} previous dataset(s)`);
+        }
+      } catch (err) {
+        console.error("Failed to load datasets from Firestore", err);
+      } finally {
+        if (!cancelled) setLoadingHistory(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [user, loadDatasets]);
 
   const active = useMemo(() => datasets.find((d) => d.id === activeDatasetId) || null, [datasets, activeDatasetId]);
 
@@ -50,9 +92,9 @@ export function CsvDataProvider({ children }: { children: ReactNode }) {
     });
   }, [headers, rawRows]);
 
-  const addDataset = useCallback((name: string, h: string[], r: string[][]) => {
+  const addDataset = useCallback((name: string, h: string[], r: string[][], firestoreId?: string) => {
     const id = `ds-${nextId++}`;
-    const ds: Dataset = { id, fileName: name, headers: h, rawRows: r };
+    const ds: Dataset = { id, firestoreId, fileName: name, headers: h, rawRows: r };
     setDatasets((prev) => [...prev, ds]);
     setActiveDatasetId(id);
     return id;
@@ -88,7 +130,7 @@ export function CsvDataProvider({ children }: { children: ReactNode }) {
   }, [addDataset]);
 
   return (
-    <CsvDataContext.Provider value={{ headers, rows, rawRows, fileName, datasets, activeDatasetId, addDataset, removeDataset, switchDataset, clearData, setData }}>
+    <CsvDataContext.Provider value={{ headers, rows, rawRows, fileName, datasets, activeDatasetId, loadingHistory, addDataset, removeDataset, switchDataset, clearData, setData }}>
       {children}
     </CsvDataContext.Provider>
   );
