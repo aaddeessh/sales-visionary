@@ -39,7 +39,7 @@ export function RegionalHeatmap() {
             <div className="relative">
               <span className="text-xs font-medium uppercase text-muted-foreground">{region.code}</span>
               <p className="mt-2 text-lg font-semibold text-foreground">
-                ${region.revenue >= 1000000 ? `${(region.revenue / 1000000).toFixed(1)}M` : `${(region.revenue / 1000).toFixed(1)}K`}
+                ₹{region.revenue >= 1000000 ? `${(region.revenue / 1000000).toFixed(1)}M` : `${(region.revenue / 1000).toFixed(1)}K`}
               </p>
               <p className="text-xs text-muted-foreground">{region.name}</p>
             </div>

@@ -176,7 +176,7 @@ export function DataUpload() {
       );
       toast.success(`${file.name} uploaded successfully`);
     }
-  }, []);
+  }, [setData, user, saveDataset]);
 
   const handleDrag = (e: React.DragEvent) => {
     e.preventDefault();

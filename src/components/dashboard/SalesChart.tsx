@@ -17,7 +17,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
         <p className="mb-2 text-sm font-medium text-foreground">{label}</p>
         {payload.map((entry: any, index: number) => (
           <p key={index} className="text-sm" style={{ color: entry.color }}>
-            {entry.name}: ${(entry.value / 1000).toFixed(1)}K
+            {entry.name}: ₹{(entry.value / 1000).toFixed(1)}K
           </p>
         ))}
       </div>
@@ -60,7 +60,7 @@ export function SalesChart() {
             </defs>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(222, 30%, 16%)" vertical={false} />
             <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fill: "hsl(215, 20%, 55%)", fontSize: 12 }} />
-            <YAxis axisLine={false} tickLine={false} tick={{ fill: "hsl(215, 20%, 55%)", fontSize: 12 }} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}K`} />
+            <YAxis axisLine={false} tickLine={false} tick={{ fill: "hsl(215, 20%, 55%)", fontSize: 12 }} tickFormatter={(v) => `₹${(v / 1000).toFixed(0)}K`} />
             <Tooltip content={<CustomTooltip />} />
             <Area type="monotone" dataKey="sales" stroke="hsl(190, 95%, 45%)" strokeWidth={2} fill="url(#salesGradient)" name="Sales" />
           </AreaChart>

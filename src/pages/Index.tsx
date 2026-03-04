@@ -12,7 +12,7 @@ import { DataUpload } from "@/components/dashboard/DataUpload";
 import { DatasetSwitcher } from "@/components/dashboard/DatasetSwitcher";
 import { CsvDataProvider, useCsvData, deriveKPIs } from "@/hooks/useCsvData";
 import {
-  DollarSign,
+  IndianRupee,
   ShoppingCart,
   Users,
   TrendingUp,
@@ -27,7 +27,7 @@ function DashboardKPIs() {
   if (!kpis) {
     return (
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <KPICard title="Total Revenue" value="—" change={0} changeLabel="Upload CSV" icon={DollarSign} variant="default" />
+        <KPICard title="Total Revenue" value="—" change={0} changeLabel="Upload CSV" icon={IndianRupee} variant="default" />
         <KPICard title="Total Orders" value="—" change={0} changeLabel="Upload CSV" icon={ShoppingCart} variant="default" />
         <KPICard title="Unique Customers" value="—" change={0} changeLabel="Upload CSV" icon={Users} variant="default" />
         <KPICard title="Avg Order Value" value="—" change={0} changeLabel="Upload CSV" icon={TrendingUp} variant="default" />
@@ -37,10 +37,10 @@ function DashboardKPIs() {
 
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <KPICard title="Total Revenue" value={`$${kpis.totalRevenue.toLocaleString(undefined, { maximumFractionDigits: 0 })}`} change={0} changeLabel={`${kpis.totalOrders} orders`} icon={DollarSign} variant="success" />
+      <KPICard title="Total Revenue" value={`₹${kpis.totalRevenue.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`} change={0} changeLabel={`${kpis.totalOrders} orders`} icon={IndianRupee} variant="success" />
       <KPICard title="Total Orders" value={kpis.totalOrders.toLocaleString()} change={0} changeLabel="from CSV" icon={ShoppingCart} variant="default" />
       <KPICard title="Unique Customers" value={kpis.uniqueCustomers.toLocaleString()} change={0} changeLabel="from CSV" icon={Users} variant="default" />
-      <KPICard title="Avg Order Value" value={`$${kpis.avgOrderValue.toFixed(2)}`} change={0} changeLabel="per order" icon={TrendingUp} variant="success" />
+      <KPICard title="Avg Order Value" value={`₹${kpis.avgOrderValue.toFixed(2)}`} change={0} changeLabel="per order" icon={TrendingUp} variant="success" />
     </div>
   );
 }
