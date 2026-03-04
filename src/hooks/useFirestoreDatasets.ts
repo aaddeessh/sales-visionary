@@ -44,8 +44,7 @@ export function useFirestoreDatasets() {
   const loadDatasets = useCallback(async (userId: string): Promise<FirestoreDataset[]> => {
     const q = query(
       collection(db, COLLECTION),
-      where("userId", "==", userId),
-      orderBy("createdAt", "desc")
+      where("userId", "==", userId)
     );
     const snapshot = await getDocs(q);
     return snapshot.docs.map((d) => ({
