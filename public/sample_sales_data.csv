@@ -1,21 +1,102 @@
 date,product,category,region,quantity,unit_price,total,customer_id,payment_method
-2026-01-05,Wireless Headphones,Electronics,North America,3,79.99,239.97,C1001,Credit Card
-2026-01-05,Office Chair,Furniture,Europe,1,349.00,349.00,C1002,PayPal
-2026-01-06,Running Shoes,Sports,Asia Pacific,2,129.95,259.90,C1003,Credit Card
-2026-01-07,Desk Lamp,Office,North America,5,44.99,224.95,C1004,Debit Card
-2026-01-08,Winter Jacket,Clothing,Europe,1,189.00,189.00,C1005,Credit Card
-2026-01-08,Bluetooth Speaker,Electronics,Latin America,2,59.99,119.98,C1006,PayPal
-2026-01-09,Bookshelf,Furniture,North America,1,199.99,199.99,C1007,Credit Card
-2026-01-10,Yoga Mat,Sports,Asia Pacific,4,29.99,119.96,C1008,Debit Card
-2026-01-11,Novel Collection,Books,Europe,6,14.99,89.94,C1009,Credit Card
-2026-01-12,Standing Desk,Office,North America,1,549.00,549.00,C1010,Credit Card
-2026-01-13,Laptop Sleeve,Electronics,Middle East,3,34.99,104.97,C1011,PayPal
-2026-01-14,Bean Bag,Furniture,Africa,2,89.99,179.98,C1012,Debit Card
-2026-01-15,Tennis Racket,Sports,North America,1,159.99,159.99,C1013,Credit Card
-2026-01-16,Polo Shirt,Clothing,Europe,4,49.99,199.96,C1014,Credit Card
-2026-01-17,Mechanical Keyboard,Electronics,Asia Pacific,2,129.99,259.98,C1015,PayPal
-2026-01-18,Cookbook Set,Books,North America,3,24.99,74.97,C1016,Debit Card
-2026-01-19,Monitor Stand,Office,Latin America,2,79.99,159.98,C1017,Credit Card
-2026-01-20,Hiking Boots,Sports,Europe,1,219.00,219.00,C1018,Credit Card
-2026-01-21,USB-C Hub,Electronics,North America,5,39.99,199.95,C1019,PayPal
-2026-01-22,Throw Pillow Set,Furniture,Asia Pacific,3,34.99,104.97,C1020,Credit Card
+2026-01-02,Wireless Headphones,Electronics,Mumbai,3,4999,14997,C1001,UPI
+2026-01-02,Office Chair,Furniture,Delhi,1,18999,18999,C1002,Credit Card
+2026-01-03,Running Shoes,Sports,Bengaluru,2,7999,15998,C1003,UPI
+2026-01-04,Desk Lamp,Office,Chennai,5,2499,12495,C1004,Debit Card
+2026-01-05,Winter Jacket,Clothing,Kolkata,1,8999,8999,C1005,Credit Card
+2026-01-05,Bluetooth Speaker,Electronics,Hyderabad,2,3499,6998,C1006,UPI
+2026-01-06,Bookshelf,Furniture,Pune,1,12999,12999,C1007,Credit Card
+2026-01-07,Yoga Mat,Sports,Jaipur,4,1499,5996,C1008,Debit Card
+2026-01-08,Novel Collection,Books,Ahmedabad,6,799,4794,C1009,UPI
+2026-01-09,Standing Desk,Office,Mumbai,1,29999,29999,C1010,Credit Card
+2026-01-10,Laptop Sleeve,Electronics,Lucknow,3,1999,5997,C1011,UPI
+2026-01-11,Bean Bag,Furniture,Chandigarh,2,4999,9998,C1012,Debit Card
+2026-01-12,Tennis Racket,Sports,Delhi,1,8999,8999,C1013,Credit Card
+2026-01-13,Polo Shirt,Clothing,Bengaluru,4,2499,9996,C1014,UPI
+2026-01-14,Mechanical Keyboard,Electronics,Chennai,2,6999,13998,C1015,Credit Card
+2026-01-15,Cookbook Set,Books,Mumbai,3,1299,3897,C1016,Debit Card
+2026-01-16,Monitor Stand,Office,Hyderabad,2,3999,7998,C1017,UPI
+2026-01-17,Hiking Boots,Sports,Pune,1,11999,11999,C1018,Credit Card
+2026-01-18,USB-C Hub,Electronics,Kolkata,5,2199,10995,C1019,UPI
+2026-01-19,Throw Pillow Set,Furniture,Jaipur,3,1799,5397,C1020,Credit Card
+2026-01-20,Cricket Bat,Sports,Mumbai,2,4599,9198,C1021,UPI
+2026-01-21,Cotton Kurta,Clothing,Delhi,3,1599,4797,C1022,Debit Card
+2026-01-22,LED Monitor,Electronics,Bengaluru,1,15999,15999,C1023,Credit Card
+2026-01-23,Dining Table,Furniture,Chennai,1,24999,24999,C1024,EMI
+2026-01-24,Badminton Set,Sports,Hyderabad,2,2999,5998,C1025,UPI
+2026-01-25,Silk Saree,Clothing,Jaipur,1,7999,7999,C1026,Credit Card
+2026-01-26,Laptop Stand,Office,Pune,3,2499,7497,C1027,UPI
+2026-01-27,History Book,Books,Ahmedabad,4,599,2396,C1028,Debit Card
+2026-01-28,Smart Watch,Electronics,Mumbai,2,12999,25998,C1029,Credit Card
+2026-01-29,Recliner Chair,Furniture,Delhi,1,34999,34999,C1030,EMI
+2026-01-30,Football,Sports,Kolkata,3,1999,5997,C1031,UPI
+2026-01-31,Denim Jeans,Clothing,Bengaluru,2,2999,5998,C1032,Debit Card
+2026-02-01,Webcam HD,Electronics,Chennai,4,3499,13996,C1033,UPI
+2026-02-02,Shoe Rack,Furniture,Hyderabad,1,4999,4999,C1034,Credit Card
+2026-02-03,Gym Gloves,Sports,Pune,5,799,3995,C1035,UPI
+2026-02-04,Linen Shirt,Clothing,Mumbai,3,1999,5997,C1036,Credit Card
+2026-02-05,Printer Inkjet,Electronics,Lucknow,1,8999,8999,C1037,Debit Card
+2026-02-06,Wall Clock,Furniture,Jaipur,2,1499,2998,C1038,UPI
+2026-02-07,Skipping Rope,Sports,Delhi,6,499,2994,C1039,UPI
+2026-02-08,Chinos Trouser,Clothing,Bengaluru,2,2499,4998,C1040,Credit Card
+2026-02-09,Power Bank,Electronics,Mumbai,4,1999,7996,C1041,UPI
+2026-02-10,Coffee Table,Furniture,Chennai,1,14999,14999,C1042,EMI
+2026-02-11,Table Tennis Set,Sports,Hyderabad,2,3999,7998,C1043,Debit Card
+2026-02-12,Woolen Sweater,Clothing,Chandigarh,3,2999,8997,C1044,Credit Card
+2026-02-13,Tablet Stand,Office,Pune,5,999,4995,C1045,UPI
+2026-02-14,Fiction Novel,Books,Ahmedabad,8,399,3192,C1046,Debit Card
+2026-02-15,Wireless Mouse,Electronics,Kolkata,3,1299,3897,C1047,UPI
+2026-02-16,TV Unit,Furniture,Delhi,1,19999,19999,C1048,EMI
+2026-02-17,Resistance Band,Sports,Mumbai,4,699,2796,C1049,UPI
+2026-02-18,Formal Shirt,Clothing,Bengaluru,2,2199,4398,C1050,Credit Card
+2026-02-19,Earbuds TWS,Electronics,Chennai,5,2999,14995,C1051,UPI
+2026-02-20,Wardrobe,Furniture,Hyderabad,1,29999,29999,C1052,EMI
+2026-02-21,Volleyball,Sports,Jaipur,3,1599,4797,C1053,Debit Card
+2026-02-22,Ethnic Dupatta,Clothing,Lucknow,4,899,3596,C1054,UPI
+2026-02-23,Keyboard Wireless,Electronics,Pune,2,2499,4998,C1055,Credit Card
+2026-02-24,Study Desk,Office,Mumbai,1,11999,11999,C1056,EMI
+2026-02-25,Motivational Book,Books,Delhi,5,499,2495,C1057,UPI
+2026-02-26,Phone Case,Electronics,Bengaluru,10,599,5990,C1058,UPI
+2026-02-27,Cushion Set,Furniture,Chennai,3,1299,3897,C1059,Debit Card
+2026-02-28,Yoga Block,Sports,Kolkata,4,499,1996,C1060,UPI
+2026-03-01,Track Pants,Clothing,Hyderabad,3,1499,4497,C1061,Credit Card
+2026-03-02,HDMI Cable,Electronics,Mumbai,6,499,2994,C1062,UPI
+2026-03-03,Bed Side Table,Furniture,Pune,2,5999,11998,C1063,Debit Card
+2026-03-04,Carrom Board,Sports,Jaipur,1,3499,3499,C1064,UPI
+2026-03-05,Palazzo Pants,Clothing,Ahmedabad,3,1299,3897,C1065,Credit Card
+2026-03-06,USB Flash Drive,Electronics,Delhi,8,699,5592,C1066,UPI
+2026-03-07,Bookcase Tall,Furniture,Lucknow,1,16999,16999,C1067,EMI
+2026-03-08,Dumbbells Set,Sports,Mumbai,2,4999,9998,C1068,Credit Card
+2026-03-09,Cotton T-Shirt,Clothing,Bengaluru,5,799,3995,C1069,UPI
+2026-03-10,Graphic Tablet,Electronics,Chennai,1,19999,19999,C1070,Credit Card
+2026-03-11,Sofa Cover,Furniture,Hyderabad,2,2499,4998,C1071,Debit Card
+2026-03-12,Chess Set,Sports,Kolkata,3,1999,5997,C1072,UPI
+2026-03-13,Nehru Jacket,Clothing,Chandigarh,1,3999,3999,C1073,Credit Card
+2026-03-14,SSD External,Electronics,Pune,2,5999,11998,C1074,UPI
+2026-03-15,Filing Cabinet,Office,Mumbai,1,8999,8999,C1075,EMI
+2026-03-16,Science Fiction,Books,Delhi,6,549,3294,C1076,Debit Card
+2026-03-17,Charger Fast,Electronics,Jaipur,4,1499,5996,C1077,UPI
+2026-03-18,Garden Chair,Furniture,Ahmedabad,2,6999,13998,C1078,Credit Card
+2026-03-19,Swimming Goggles,Sports,Mumbai,5,999,4995,C1079,UPI
+2026-03-20,Kurta Pyjama Set,Clothing,Lucknow,2,2999,5998,C1080,Debit Card
+2026-03-21,Router WiFi,Electronics,Bengaluru,3,3999,11997,C1081,UPI
+2026-03-22,Bean Bag XL,Furniture,Chennai,1,6999,6999,C1082,Credit Card
+2026-03-23,Boxing Gloves,Sports,Delhi,2,2499,4998,C1083,UPI
+2026-03-24,Blazer Formal,Clothing,Hyderabad,1,5999,5999,C1084,Credit Card
+2026-03-25,Webcam 4K,Electronics,Pune,2,7999,15998,C1085,EMI
+2026-03-26,Mirror Wall,Furniture,Kolkata,1,4999,4999,C1086,Debit Card
+2026-03-27,Treadmill,Sports,Mumbai,1,34999,34999,C1087,EMI
+2026-03-28,Raincoat,Clothing,Jaipur,3,1999,5997,C1088,UPI
+2026-03-29,Pen Drive 128GB,Electronics,Ahmedabad,5,899,4495,C1089,UPI
+2026-03-30,Whiteboard,Office,Delhi,2,3499,6998,C1090,Credit Card
+2026-03-31,Travel Guide Book,Books,Bengaluru,4,699,2796,C1091,Debit Card
+2026-04-01,Portable Speaker,Electronics,Chennai,3,4499,13497,C1092,UPI
+2026-04-02,Mattress Queen,Furniture,Mumbai,1,19999,19999,C1093,EMI
+2026-04-03,Cycling Helmet,Sports,Hyderabad,2,2999,5998,C1094,Credit Card
+2026-04-04,Leather Belt,Clothing,Pune,4,999,3996,C1095,UPI
+2026-04-05,Laptop Bag,Electronics,Kolkata,3,1799,5397,C1096,Debit Card
+2026-04-06,Curtain Set,Furniture,Jaipur,2,2999,5998,C1097,UPI
+2026-04-07,Hockey Stick,Sports,Chandigarh,2,3499,6998,C1098,Credit Card
+2026-04-08,Sherwani,Clothing,Lucknow,1,12999,12999,C1099,EMI
+2026-04-09,Action Camera,Electronics,Delhi,1,24999,24999,C1100,Credit Card
+2026-04-10,Rug Persian,Furniture,Mumbai,1,9999,9999,C1101,UPI

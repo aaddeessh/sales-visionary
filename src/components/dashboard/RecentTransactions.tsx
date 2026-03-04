@@ -37,7 +37,7 @@ export function RecentTransactions() {
               </div>
             </div>
             <div className="text-right">
-              <p className="text-sm font-semibold text-foreground">+${t.amount.toLocaleString()}</p>
+              <p className="text-sm font-semibold text-foreground">+₹{t.amount.toLocaleString('en-IN')}</p>
               <div className="mt-1 flex items-center justify-end gap-2">
                 <span className={cn("rounded-full px-2 py-0.5 text-[10px] font-medium capitalize bg-success/10 text-success")}>
                   {t.status}
