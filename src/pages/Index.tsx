@@ -105,6 +105,10 @@ function DashboardContent({ activeTab }: { activeTab: string }) {
           <DataUpload />
         </div>
       );
+    case "reports":
+      return <ReportsPanel />;
+    case "settings":
+      return <SettingsPanel />;
     default:
       return (
         <div className="flex h-96 items-center justify-center animate-fade-in">
