@@ -9,6 +9,8 @@ import { RegionalHeatmap } from "@/components/dashboard/RegionalHeatmap";
 import { RecentTransactions } from "@/components/dashboard/RecentTransactions";
 import { ForecastingPanel } from "@/components/dashboard/ForecastingPanel";
 import { DataUpload } from "@/components/dashboard/DataUpload";
+import { ReportsPanel } from "@/components/dashboard/ReportsPanel";
+import { SettingsPanel } from "@/components/dashboard/SettingsPanel";
 import { DatasetSwitcher } from "@/components/dashboard/DatasetSwitcher";
 import { CsvDataProvider, useCsvData, deriveKPIs } from "@/hooks/useCsvData";
 import {
@@ -103,6 +105,10 @@ function DashboardContent({ activeTab }: { activeTab: string }) {
           <DataUpload />
         </div>
       );
+    case "reports":
+      return <ReportsPanel />;
+    case "settings":
+      return <SettingsPanel />;
     default:
       return (
         <div className="flex h-96 items-center justify-center animate-fade-in">
