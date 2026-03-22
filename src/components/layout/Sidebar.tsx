@@ -29,7 +29,6 @@ const menuItems = [
 ];
 
 const secondaryItems = [
-  { id: "database", label: "Database", icon: Database },
   { id: "reports", label: "Reports", icon: FileText },
   { id: "settings", label: "Settings", icon: Settings },
 ];
