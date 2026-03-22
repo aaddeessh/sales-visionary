@@ -7,7 +7,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
     return (
       <div className="glass-card rounded-lg border border-border p-3 shadow-xl">
         <p className="mb-1 text-sm font-medium text-foreground">{label}</p>
-        <p className="text-sm text-primary">Revenue: ${(payload[0].value / 1000).toFixed(1)}K</p>
+        <p className="text-sm text-primary">Revenue: ₹{(payload[0].value / 1000).toFixed(1)}K</p>
         <p className="text-xs text-muted-foreground">Units: {payload[0].payload.units.toLocaleString()}</p>
       </div>
     );
@@ -40,7 +40,7 @@ export function ProductPerformance() {
       <div className="h-64">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={productData} layout="vertical" margin={{ left: 20 }}>
-            <XAxis type="number" axisLine={false} tickLine={false} tick={{ fill: "hsl(215, 20%, 55%)", fontSize: 12 }} tickFormatter={(v) => `$${v / 1000}K`} />
+            <XAxis type="number" axisLine={false} tickLine={false} tick={{ fill: "hsl(215, 20%, 55%)", fontSize: 12 }} tickFormatter={(v) => `₹${v / 1000}K`} />
             <YAxis type="category" dataKey="name" axisLine={false} tickLine={false} tick={{ fill: "hsl(215, 20%, 55%)", fontSize: 12 }} width={80} />
             <Tooltip content={<CustomTooltip />} cursor={{ fill: "hsl(222, 30%, 14%)" }} />
             <Bar dataKey="sales" fill="hsl(190, 95%, 45%)" radius={[0, 4, 4, 0]} barSize={24} />
